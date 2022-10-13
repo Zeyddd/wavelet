@@ -14,7 +14,7 @@ class Handler implements URLHandler {
         } else if (url.getPath().equals("/add")) {
             String[] parameters = url.getQuery().split("=");
             strArray.add(parameters[1]);
-            return String.format("Item added!");
+            return String.format(parameters[1] + " added!");
         } else {
             if (url.getPath().contains("/search")) {
                 ArrayList<String> output = new ArrayList<>();
@@ -22,9 +22,9 @@ class Handler implements URLHandler {
                 for(int i = 0; i < strArray.size(); i++){
                     if(strArray.get(i).contains(parameters[1])){
                         output.add(strArray.get(i));
-                        return output.toString();
                     }
                 }
+                return output.toString();
                 
                 }
             }
